@@ -3,8 +3,10 @@ package com.example.a03recyclerview;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         initLstNombre();
 
         //Iniciando el layoutManager
-        layoutManager = new LinearLayoutManager(this);
+//        layoutManager = new LinearLayoutManager(this); // Vista de lista
+//        layoutManager = new GridLayoutManager(this, 2); //Vista de grid
+        layoutManager = new StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL); //Vista vertical u horizontal de grid
         //Iniciando el adaptador
         adapter = new MyAdapter(lstNombre, R.layout.recycler_view_item,
                 new MyAdapter.OnItemClickListener() {
